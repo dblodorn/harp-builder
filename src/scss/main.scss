@@ -1,0 +1,74 @@
+// VARIABLES:
+$i: 20;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+// Mixins
+@mixin transition($transition-property, $transition-time, $method) {
+  transition: $transition-property $transition-time $method;
+}
+
+.smooth {
+  @include transition(all, 0.5s, ease-in-out);
+}
+.smooth-slow {
+  @include transition(all, 2s, ease-in-out);
+}
+
+//
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: black;
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;   
+    box-sizing: border-box;
+    outline: 0;
+  }
+}
+
+// Rectangle Layout
+.string {
+  width: calc(100vw / ($i / 2));
+  height: 100%;
+  display: block;
+  float: left;
+  cursor: pointer;
+    i {
+      @extend .smooth-slow;
+      display: block;
+      float: left;
+      width: 10%;
+      z-index: 9000;
+    }
+    @while $i > 0 {
+      $x: $i * 1;
+      i:nth-child(#{$i}) {
+        height: calc(($x * $i) * 1%);
+        margin-top: 0;
+        background-color: rgb( $i * 25 , $i + 250 * .5, $i * 5.5 );
+      }
+      $i: $i - 1;
+    }
+    &:hover {
+      height: 95%;
+      @while $i > 0 {
+        i:nth-child(#{$i}) {
+          height: 5% * $i;
+          margin-top: 55% * $i;
+          background-color: rgb( $i * 50 * .4 , $i + 10, $i * 50 * 3 );
+        }
+        $i: $i - 1;
+      }
+    }  
+}
