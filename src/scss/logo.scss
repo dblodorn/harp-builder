@@ -1,6 +1,6 @@
 #harps {
-  width: 200px;
-  height: 100px;
+  width: 250px;
+  height: 60px;
   background: white;
   position: fixed;
   top: 30px;
@@ -9,4 +9,5 @@
   justify-content: center;
   align-items: center;
   border: 1px outset black;
+  cursor: col-resize;
 }

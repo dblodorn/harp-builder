@@ -1,8 +1,31 @@
 import "./scss/main.scss";
 import * as Tone from 'tone'
 
-const delay = new Tone.PingPongDelay("2n", 0.8).toDestination();
-const synth = new Tone.Synth().connect(delay).toDestination();
+const reverb = new Tone.Reverb({
+  decay: 40,
+  wet: 0.5,
+}).toDestination();
+const delay = new Tone.PingPongDelay("2n", 0.68).toDestination();
+const synth = new Tone.FMSynth({
+  harmonicity: 1,
+  modulationIndex: 20,
+  detune: 0,
+  modulationEnvelope: {
+    attack: 0.01,
+    decay: 0.9,
+    release: 0.5,
+    sustain: 0.272,
+  },
+  envelope: {
+    attack: 0.964,
+    decay: .9,
+    release: 1,
+    sustain: 0.9,
+  },
+  modulation: {
+    type: "triangle19"
+  },
+}).connect(delay).connect(reverb).toDestination();
 /** THR GRAM */
 // alert(`ђคгקร Hαɾρʂ ɦǟʀքֆ ᏂᏗᏒᎮᏕ ɧąཞ℘ ʂhคrpŞ`)
 
@@ -10,40 +33,51 @@ let initialized = false
 var keyCount = 20
 
 const notes = [
-  'Cb5',
-  'D5',
-  'E5',
-  'F5',
-  'G5',
-  'A5',
-  'B5',
-  'C3',
-  'Db3',
-  'E#3',
-  'F3',
-  'G3',
+  'D3',
   'A3',
+  'C3',
   'B3',
-  'C4',
+  'G3',
+
   'D4',
-  'E4',
-  'F4',
-  'G#4',
   'A4',
+  'C4',
   'B4',
+  'G4',
+
+  'D5',
+  'A5',
+  'C5',
+  'B5',
+  'G5',
+
+  'D6',
+  'A6',
+  'C6',
+  'B6',
+  'G6',
+
+  
+  
 ]
 
+const harpTitle = document.getElementById('harp-title')
 const startButton =  document.getElementById('harps')
+harpTitle.innerHTML = '♪ click 2 Start ♪'
 
 startButton.addEventListener('click', () => {
-  alert(initialized ? 'initialized' : 'not intialized')
   if (!initialized) {
     initialized = true
+    harpTitle.innerHTML = '♪ Harps ♪'
     Tone.start()
   } else {
     console.log('already initialized')
   }
 })
+
+
+
+
 
 function pluckHandler(e) {
   if (e && e.target.dataset.note) {
