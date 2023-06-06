@@ -5,6 +5,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body#harp
+    include includes/logo.pug
     - var r = 20
       while r--
         .string(class=[`key-${r + 1}`])&attributes({'data-note': r + 1})

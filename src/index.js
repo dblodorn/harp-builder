@@ -33,23 +33,24 @@ const notes = [
   'B4',
 ]
 
-function init() {
-  console.log('init')
-  initialized = false
-}
+const startButton =  document.getElementById('harps')
 
+startButton.addEventListener('click', () => {
+  alert(initialized ? 'initialized' : 'not intialized')
+  if (!initialized) {
+    initialized = true
+    Tone.start()
+  } else {
+    console.log('already initialized')
+  }
+})
 
 function pluckHandler(e) {
   if (e && e.target.dataset.note) {
-    if (!initialized) {
-      initialized = true
-      Tone.start()
-    } else {
-      const note = notes[e.target.dataset.note - 1]
-      const now = Tone.now()
-      console.log('𝓃𝑜𝓉𝑒𝓈 𝓃𝑜𝓉𝑒𝓈 𝓃𝑜𝓉𝑒𝓈s', now, note)
-      synth.triggerAttackRelease(note, "10n", now + e.target.dataset.note);
-    }
+    const note = notes[e.target.dataset.note - 1]
+    const now = Tone.now()
+    console.log('𝓃𝑜𝓉𝑒𝓈 𝓃𝑜𝓉𝑒𝓈 𝓃𝑜𝓉𝑒𝓈s', now, note)
+    synth.triggerAttackRelease(note, "10n", now + e.target.dataset.note);
   }
 }
 
@@ -68,6 +69,3 @@ while (keyCount--) {
   window['harpString' + (keyCount + 1)].addEventListener("mouseover", pluckHandler, false )
   window['harpString' + (keyCount + 1)].addEventListener("mouseleave", releaseHandler, false)
 }
-
-
-init()
