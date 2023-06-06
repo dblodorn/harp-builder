@@ -39,7 +39,7 @@ body {
 
 // Rectangle Layout
 .string {
-  width: calc(100vw / ($i / 2));
+  width: calc(100vw / ($i));
   height: 100%;
   display: block;
   float: left;
@@ -50,13 +50,14 @@ body {
       float: left;
       width: 10%;
       z-index: 9000;
+      pointer-events: none;
     }
     @while $i > 0 {
       $x: $i * 1;
       i:nth-child(#{$i}) {
         height: calc(($x * $i) * 1%);
         margin-top: 0;
-        background-color: rgb( $i * 25 , $i + 250 * .5, $i * 5.5 );
+        background-color: rgb( $i * 50 , $i + 130 * .5, $i * 30 );
       }
       $i: $i - 1;
     }
