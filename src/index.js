@@ -26,8 +26,6 @@ const synth = new Tone.FMSynth({
     type: "triangle19"
   },
 }).connect(delay).connect(reverb).toDestination();
-/** THR GRAM */
-// alert(`ђคгקร Hαɾρʂ ɦǟʀքֆ ᏂᏗᏒᎮᏕ ɧąཞ℘ ʂhคrpŞ`)
 
 let initialized = false
 var keyCount = 20
@@ -56,9 +54,6 @@ const notes = [
   'C6',
   'B6',
   'G6',
-
-  
-  
 ]
 
 const harpTitle = document.getElementById('harp-title')
@@ -75,22 +70,12 @@ startButton.addEventListener('click', () => {
   }
 })
 
-
-
-
-
 function pluckHandler(e) {
   if (e && e.target.dataset.note) {
     const note = notes[e.target.dataset.note - 1]
     const now = Tone.now()
     console.log('𝓃𝑜𝓉𝑒𝓈 𝓃𝑜𝓉𝑒𝓈 𝓃𝑜𝓉𝑒𝓈s', now, note)
     synth.triggerAttackRelease(note, "10n", now + e.target.dataset.note);
-  }
-}
-
-function releaseHandler(e) {
-  if (e && e.target.dataset.note) {
-    // console.log('release', e.target.dataset.note)
   }
 }
 
@@ -101,5 +86,5 @@ function releaseHandler(e) {
 while (keyCount--) {
   window['harpString' + (keyCount + 1)] = document.querySelector(`.key-${keyCount + 1}`)
   window['harpString' + (keyCount + 1)].addEventListener("mouseover", pluckHandler, false )
-  window['harpString' + (keyCount + 1)].addEventListener("mouseleave", releaseHandler, false)
+  window['harpString' + (keyCount + 1)].addEventListener("mousedown", pluckHandler, false)
 }
