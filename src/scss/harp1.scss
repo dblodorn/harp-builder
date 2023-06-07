@@ -1,0 +1,39 @@
+// VARIABLES:
+$i: 20;
+
+// Rectangle Layout
+.string {
+  width: calc(100vw / ($i));
+  height: 100%;
+  display: block;
+  float: left;
+  cursor: e-resize;
+    i {
+      @extend .smooth-slow;
+      display: block;
+      float: left;
+      width: 10%;
+      z-index: 9000;
+      pointer-events: none;
+    }
+    @while $i > 0 {
+      $x: $i * 1;
+      i:nth-child(#{$i}) {
+        height: calc(($x * $i) * 1%);
+        margin-top: 0;
+        background-color: rgb( $i * 50 , $i + 130 * .5, $i * 30 );
+      }
+      $i: $i - 1;
+    }
+    &:hover {
+      height: 95%;
+      @while $i > 0 {
+        i:nth-child(#{$i}) {
+          height: 5% * $i;
+          margin-top: 55% * $i;
+          background-color: rgb( $i * 50 * .4 , $i + 10, $i * 50 * 3 );
+        }
+        $i: $i - 1;
+      }
+    }  
+}
