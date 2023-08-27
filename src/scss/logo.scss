@@ -1,13 +1,16 @@
 #harps {
   width: 200px;
   height: 60px;
-  background: white;
   position: fixed;
-  top: 30px;
-  left: 30px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px outset black;
+  border: 3px outset black;
   cursor: col-resize;
+  background-color: white;
 }
