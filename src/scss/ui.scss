@@ -1,0 +1,32 @@
+#initialize-button {
+  width: 200px;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px outset black;
+  cursor: col-resize;
+  background-color: white;
+}
+
+#add-body {
+  width: 200px;
+  height: 60px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 3px outset black;
+  background-color: white;
+  opacity: 0;
+  pointer-events: none;
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

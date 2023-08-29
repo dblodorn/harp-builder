@@ -10,18 +10,27 @@
   "author": "Dain Blodorn",
   "license": "GNU",
   "devDependencies": {
+    "@types/node": "^20.5.6",
+    "@types/webpack": "^5.28.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.2.0",
+    "declaration-bundler-webpack-plugin": "^1.0.3",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.2.2",
     "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
     "sass": "^1.38.2",
     "sass-loader": "^12.1.0",
-    "webpack": "^5.51.1",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "^4.0.0",
+    "wepack-cli": "0.0.1-security"
   },
   "dependencies": {
+    "@types/matter-js": "^0.19.0",
     "matter-js": "^0.19.0",
     "tone": "^14.7.77"
   }
