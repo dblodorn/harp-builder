@@ -32,6 +32,8 @@
   "dependencies": {
     "@types/matter-js": "^0.19.0",
     "matter-js": "^0.19.0",
-    "tone": "^14.7.77"
+    "popmotion": "^11.0.5",
+    "tone": "^14.7.77",
+    "xstate": "^4.38.2"
   }
 }
