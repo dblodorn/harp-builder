@@ -1,0 +1,39 @@
+// FONTS
+// $display: 'FontName', sans-serif /* declare font variables here */
+$default-sans: sans-serif;
+$base-font-size: 16px;
+
+$doc-line-height: 1.4;
+
+$heavy: 700;
+$bold: 600;
+$medium: 500;
+$regular: 400;
+$light: 300;
+
+// BREAKPOINTS
+$breakpoint-medium: 490px;
+$breakpoint-large: 1280px;
+
+// COLORS
+$black: #000000;
+$white: #ffffff;
+$lt-grey: #cbcbcb;
+
+$border: 1px solid $lt-grey;
+
+// Measurements
+$hundred: 100%;
+$max-width: 96rem;
+
+// Padding
+$single-pad: 2rem;
+$double-pad: $single-pad * 2;
+
+// Font Sizing
+$h1-size: 4rem;
+$h2-size: 3rem;
+$h3-size: 2.5rem;
+$h4-size: 2rem;
+$h5-size: 1.5rem;
+$p-size: 1.25rem;
